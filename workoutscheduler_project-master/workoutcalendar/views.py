@@ -25,7 +25,7 @@ class WorkoutCalendarTV(TemplateView):
             year = int(self.kwargs['year'])
             month = int(self.kwargs['month'])
 
-        my_workouts = Workout.objects.order_by('workout_date').filter(
+        my_workouts = Workout.objects.order_by('create_date').filter(
             workout_date__year=year, workout_date__month=month, owner_id=self.request.user.id
         )
         cal = WorkoutCalendar(my_workouts).formatmonth(year, month)

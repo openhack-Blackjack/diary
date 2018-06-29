@@ -46,23 +46,6 @@
 <header>
 
 
-
-
-<nav class="orange lighten-2">
-    <div class="nav-wrapper">
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-
-        
-            <li><a href="/accounts/login/"><i class="material-icons">person</i></a></li>
-        
-     </ul>
-    </div>
-</nav>
-
-
-
-</header>
-
 <div class="container ">
     <div class="row">
       <img src="/static/img/casterd.png" class="col s2 offset-s5">
@@ -79,28 +62,25 @@
 <div class="container">
 
 
+
 <div class="row">
-    <div class="col 8 offset-l3 s12">
-        
-        <form action="." method="post"><input name="csrfmiddlewaretoken" value="N95biYRISgp4RugO4ZOI7qGMO8MEasqn3j3VvjjSjeBgqjOLFYvf71KE8Zof6HXk" type="hidden">
-            
+    <div class="col l6 offset-l3 s12">
+        <h3 class="center-align grey-text">사용자 로그인</h3>
+        <form action="." method="post">{% csrf_token %}
+            {% if form.errors %}
+            <p class="red-text">사용자 이름 및 비밀번호를 확인해 주세요</p>
+            {% endif %}
 
-            
-<div>
- <input name="username" class="__required __noSpace" placeholder="ID" autofocus="" maxlength="254" required="" id="id_username" type="text">
+            <div>
+               {{ form.username.label_tag }} {{ form.username }}
             </div>
-
-
-
-
-                 <input name="password" class="__required __noSpace" placeholder="PW" required="" id="id_password" type="password">
+                {{ form.password.label_tag }} {{ form.password }}
             <div class="row">
-                <div class="button">
-                <a href="/accounts/register/" class="brown-text">회원가입</a>
-
+                <div class="col 8 s8">
+                <a class="red-text" href="{% url 'register' %}">회원가입 페이지로 이동</a>
                 </div>
                 <div class="col 4 s4">
-			 <div class="form-row right-align">
+                    <div class="form-row right-align">
                     <button class="btn-large waves-effect waves-light blue hoverable" type="submit" name="action">로그인
                      <i class="material-icons right">send</i>
                     </button>
@@ -112,48 +92,9 @@
     </div>
 </div>
 
-
-
 </div>
 
 </main>
-
-
-
- <footer class="page-footer orange lighten-2">
-  <div class="container">
-    <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">카스타드는...</h5>
-          <p class="grey-text text-lighten-4">
-              간단한 일기 다이어리 웹 서비스입니다.
-          </p>
-          <h5 class="white-text">Github Link</h5>
-          <a class="grey-text text-lighten-3" href="https://github.com/openhack-Blackjack/diary">
-            <i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
-      </div>
-      <div class="col l4 offset-l2 s12">
-        <h5 class="white-text">사필귀정</h5>
-          <div class="row">
-              <div class="col l12 s3">
-                  <a class="grey-text text-lighten-3" href="mailto:minyoungjung84@gmail.com">
-              <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i> E-mail</a>
-              </div>
-              <div class="col l12 s3">
-                  <a class="grey-text text-lighten-3" href="https://www.instagram.com/fallgrain">
-              <i class="fa fa-instagram fa-2x"></i> Instagram</a>
-              </div>
-          </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="container">
-        © 2018 Powered by Black jack
-    </div>
-  </div>
-</footer>
-
 
 
 
@@ -168,7 +109,8 @@
 
 
 
-</body></html>
+</body>
+</html>
 
 
 
