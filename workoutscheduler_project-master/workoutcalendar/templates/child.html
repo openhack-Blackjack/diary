@@ -4,13 +4,18 @@
 {% load static %}
 {% get_static_prefix as STATIC_PREFIX %}
 
-<!-- To invalidate browser cache-->
-<link rel="stylesheet" type="text/css" href="{{ STATIC_PREFIX }}css/calendar.css?ver=2"/>
+<div>
+    <h4 class="grey-text center">{{ day|date:"Y년 N j일, D"}}</h4>
 
-<div class="calendar">
-    {% for workout in workouts  %}
-        {{workout.workout}}
-        {{workout.content}}
-    {% endfor %}
+
+    <div class="row">
+        <div class="col l8 offset-l2 s12">
+            <div style="background-image: url('/static/img/note.png'); padding-left: 180px;padding-top: 60px;">
+                <textarea readonly name="content" cols="50" style="font-size:23pt;height:25em;width:560px;border: none" >{{workout.id}}</textarea>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 {% endblock %}
