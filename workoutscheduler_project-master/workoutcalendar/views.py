@@ -1,13 +1,18 @@
 from datetime import date, datetime
 from calendar import HTMLCalendar, month_name
 from itertools import groupby
-
+from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.utils.safestring import mark_safe
 from django.utils.html import conditional_escape as esc
 from django.urls import reverse
 from todolist.models import Workout
 
+def pop(request, title):
+    print(title)
+    workouts = Workout.objects.filter(workout = title)
+
+    return render(request, 'child.html', {'workouts': workouts})
 
 class WorkoutCalendarTV(TemplateView):
     template_name = 'calendar.html'
@@ -45,7 +50,8 @@ class WorkoutCalendar(HTMLCalendar):
                 body = ['<ul>']
                 for workout in self.workouts[day]:
                     body.append('<li><h6>')
-                    body.append(esc(workout.workout))
+                    body.append('<a href = /calendar/popcontent/'+workout.workout+'>'+ esc(workout.workout) + '</a>')
+                    body.append("<div style = 'display: none;''>"+"<input type = 'text' name = 'content'>" + esc(workout.content) + "</input>"+"</div>")
                     body.append('</li></h6>')
                 body.append('</ul>')
                 return self.day_cell(cssclass, '%d %s' % (day, ''.join(body)))

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+<!-- To invalidate browser cache-->
+<link rel="stylesheet" type="text/css" href="{{ STATIC_PREFIX }}css/calendar.css?ver=2"/>
+
+<div class="calendar">
+    {% for workout in workouts  %}
+        {{workout.workout}}
+        {{workout.content}}
+    {% endfor %}
+</div>
+{% endblock %}
