@@ -2,7 +2,8 @@ from django.views.generic.dates import DayArchiveView, TodayArchiveView
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
-
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.models import User
 from todolist.models import Workout
 
@@ -37,3 +38,6 @@ def workout_update(request):
         owner = name)
     workout.save()
     return HttpResponseRedirect(reverse('todolist:today_workout_list'))
+
+
+ 
