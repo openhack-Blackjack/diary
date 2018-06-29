@@ -9,9 +9,9 @@ from django.urls import reverse
 from todolist.models import Workout
 
 def pop(request, id):
-    workout = Workout.objects.filter(id = id)
+    workout = Workout.objects.get(pk=id)
 
-    return render(request, 'child.html', {'workouts': workout})
+    return render(request, 'child.html', {'workout': workout})
 
 class WorkoutCalendarTV(TemplateView):
     template_name = 'calendar.html'
