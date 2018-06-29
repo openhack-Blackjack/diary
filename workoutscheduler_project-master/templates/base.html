@@ -6,10 +6,11 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="/static/img/casterd.png" type="image/x-icon" />
 
-    <title>{% block title %}Workout scheduler{% endblock %}</title>
+    <title>{% block title %}감성 다이어리 카스타드{% endblock %}</title>
 
     <!--Import materialize.css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -32,39 +33,15 @@
 
 {% load staticfiles %}
 
-<!-- Navbar start -->
-<div class="navbar-fixed">
-    <nav class="orange lighten-2">
-        <div class="nav-wrapper">
-            <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 
-            <ul class="right hide-on-med-and-down">
-                <li><a href="{% url 'todolist:today_workout_list' %}">
-                    <i class="material-icons">assignment_turned_in</i></a></li>
-                <li><a href="{% url 'calendar:workout_calendar' %}"><i class="material-icons">event_note</i></a></li>
-
-
-                {% if user.is_active %}
-                <!-- Dropdown Trigger -->
-                <li><a class="dropdown-button" data-beloworigin="true" href="#" data-activates="nav_dropdown">
-                    <i class="material-icons">more_vert</i></a></li>
-
-                    {% if user.is_staff %}
-                        <li><a href="{% url 'admin:index' %}"><i class="material-icons">build</i></a></li>
-                    {% endif %}
-                {% else %}
-                <li><a href="{% url 'login' %}"><i class="material-icons">person</i></a></li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
-</div>
-<!-- navbar end -->
-
-<nav>
+<nav class="orange lighten-2">
     <div class="nav-wrapper">
     <ul id="nav-mobile" class="right hide-on-med-and-down">
+
         {% if user.is_active %}
+            <li><a href="{% url 'password_change' %}">패스워드 변경</a></li>
+            <li class="divider"></li>
+            <li><a href="{% url 'logout' %}?next=/">로그아웃</a></li>
             {% if user.is_staff %}
                 <li><a href="{% url 'admin:index' %}"><i class="material-icons">build</i></a></li>
             {% endif %}
@@ -74,47 +51,28 @@
      </ul>
     </div>
 </nav>
-<div class="container">
-    <img src="/static/img/casterd.png" class="col s2 offset-s5" style="height:60px">
-</div>
 
-<!-- sidebar start -->
-<ul id="slide-out" class="side-nav">
-    <li><div class="userView">
-      <div class="background">
-        <img src="{% static 'img/profile_bg.jpg' %}">
-      </div>
-      <img class="circle" src="{% static 'img/crimping.jpg' %}">
-      <span class="white-text name">{{ user.get_username | upper }}</span>
-      <span class="white-text email">{{ user.get_full_name | title }}</span>
-    </div></li>
 
-    <li><div class="divider"></div></li>
-    <li><a class="subheader">메뉴</a></li>
-
-    <li><a class="waves-effect" href="{% url 'todolist:today_workout_list' %}">
-        <i class="material-icons">assignment_turned_in</i>오늘 일정</a></li>
-    <li><a class="waves-effect" href="{% url 'calendar:workout_calendar' %}">
-        <i class="material-icons">event_note</i>월간 일정</a></li>
-
-    <li><div class="divider"></div></li>
-    <li><a class="subheader">계정 관리</a></li>
-
-    <li><a class="waves-effect" href="{% url 'password_change' %}">
-        <i class="material-icons">vpn_key</i>패스워드 변경</a></li>
-    <li><a class="waves-effect" href="{% url 'logout' %}?next=/"><i class="material-icons">exit_to_app</i>로그아웃</a></li>
-</ul>
-<!-- sidebar end -->
-
-<!-- navigation dropdown start -->
-<ul id="nav_dropdown" class="dropdown-content" style="min-width:200px">
-  <li><a href="{% url 'password_change' %}"><i class="material-icons">vpn_key</i>패스워드 변경</a></li>
-  <li class="divider"></li>
-  <li><a href="{% url 'logout' %}?next=/"><i class="material-icons">exit_to_app</i>로그아웃</a></li>
-</ul>
-<!-- dropdown end -->
 
 </header>
+
+<div class="container ">
+    <div class="row">
+      <img src="/static/img/casterd.png" class="col s2 offset-s5">
+    </div>
+</div>
+
+
+<div class="container" style="color:#995a07">
+    <div class="row">
+        <div class="col s2 offset-s2"><a href="{% url 'todolist:today_workout_list' %}">TODAY</a></div>
+        <div class="col s2"><a href="{% url 'calendar:workout_calendar' %}">자료정리</a></div>
+        <div class="col s2"><span style="font-color:#995a07;">베스트샷</span></div>
+        <div class="col s2"><span>일기쓰기</span></div>
+        <div class="col s2"><span>이전기록</span></div>
+    </div>
+</div>
+
 
 <main>
 
