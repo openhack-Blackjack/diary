@@ -9,11 +9,10 @@
 
     <div class="row">
         <div class="col l8 offset-l2 s12">
-           <form action="{% url 'todolist:workout_update'%}" method="post">
+           <form action="{% url 'todolist:workout_update'%}" method="post" enctype="multipart/form-data">
             {%csrf_token%}
                 <input type="text" name="workout">
                 <textarea name="content"></textarea>
-
                 <input type="submit" name="일기쓰기">         
             </form>
         </div>

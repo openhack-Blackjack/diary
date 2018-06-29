@@ -8,6 +8,7 @@ from django.utils.html import conditional_escape as esc
 from django.urls import reverse
 from todolist.models import Workout
 
+
 def pop(request, title):
     print(title)
     workouts = Workout.objects.filter(workout = title)
