@@ -1,0 +1,37 @@
+[
+  {
+    "model": "todolist.WorkoutCategory",
+    "pk": 1,
+    "fields": {
+      "category_name": "스트렝스"
+    }
+  },
+  {
+    "model": "todolist.WorkoutCategory",
+    "pk": 2,
+    "fields": {
+      "category_name": "파워"
+    }
+  },
+  {
+    "model": "todolist.WorkoutCategory",
+    "pk": 3,
+    "fields": {
+      "category_name": "근지구력"
+    }
+  },
+  {
+    "model": "todolist.WorkoutCategory",
+    "pk": 4,
+    "fields": {
+      "category_name": "지구력"
+    }
+  },
+  {
+    "model": "todolist.WorkoutCategory",
+    "pk": 5,
+    "fields": {
+      "category_name": "기타"
+    }
+  }
+]
