@@ -10,6 +10,7 @@
            <form action="{% url 'todolist:workout_update'%}" method="post">
             {%csrf_token%}
                 <input type="text" name="workout">
+                <textarea name="content"></textarea>
 
                 <input type="submit" name="일기쓰기">         
             </form>

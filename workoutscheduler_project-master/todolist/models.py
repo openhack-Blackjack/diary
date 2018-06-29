@@ -12,6 +12,7 @@ from django.contrib.auth.models import User
 @python_2_unicode_compatible
 class Workout(models.Model):
     workout = models.CharField(max_length=100)
+    content = models.CharField(max_length=100)
     create_date = models.DateTimeField('Create Date', auto_now_add=True)
     # record modified time for object
     # This will be used to figure out when this workout performed (by checking workout_done flag)
