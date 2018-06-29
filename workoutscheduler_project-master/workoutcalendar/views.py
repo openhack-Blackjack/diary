@@ -45,7 +45,7 @@ class WorkoutCalendar(HTMLCalendar):
         if day != 0:
             cssclass = self.cssclasses[weekday]
             if date.today() == date(self.year, self.month, day):
-                cssclass += ' today'
+                cssclass += ' today orange lighten-3'
             if day in self.workouts:
                 cssclass += ' filled'
                 body = ['<ul>']
