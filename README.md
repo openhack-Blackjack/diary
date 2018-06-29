@@ -1,7 +1,7 @@
 <p align="middle">
 <img src="https://github.com/openhack-Blackjack/diary/blob/master/workoutscheduler_project-master/static/img/casterd.png">
 </p>
-<h1 align="center" color="purple">카스타드</h1>
+<h1 align="center">카스타드</h1>
 
 # diary project
 ### teamate 팀장:이근식, 팀원:김영운,김민중,이재일,성지은
