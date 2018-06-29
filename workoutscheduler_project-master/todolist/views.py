@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
 
+from django.contrib.auth.models import User
 from todolist.models import Workout
 
 
@@ -25,9 +26,11 @@ class WorkoutDAV(DayArchiveView):
         return Workout.objects.filter(owner_id=self.request.user.id)
 
 
-def workout_update(request, workout_id):
-    print(workout_id)
-    workout = get_object_or_404(Workout, pk=workout_id)  # get workout object from it's primary key
-    workout.workout_done = 1
+def workout_update(request):
+    title = request.POST.get('workout')
+    name  = User.objects.get(username = request.user.get_username())
+    workout = Workout(
+        workout = title,
+        owner = name)
     workout.save()
     return HttpResponseRedirect(reverse('todolist:today_workout_list'))

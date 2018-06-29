@@ -1,5 +1,5 @@
 from django.contrib import admin
-from todolist.models import WorkoutCategory, WorkoutList, Workout
+from todolist.models import Workout
 
 
 class WorkoutAdmin(admin.ModelAdmin):
@@ -7,6 +7,4 @@ class WorkoutAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Workout, WorkoutAdmin)
-admin.site.register(WorkoutCategory)
-admin.site.register(WorkoutList)
 

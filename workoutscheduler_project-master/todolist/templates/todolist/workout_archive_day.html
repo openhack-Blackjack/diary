@@ -7,49 +7,12 @@
 
     <div class="row">
         <div class="col l8 offset-l2 s12">
-           {% if object_list %}
-           <table class="striped centered">
-                <thead>
-                    <tr>
-                        <th> 항목 </th>
-                        <th> 시간(분) </th>
-                        <th> 완료 </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for workout in object_list %}
-                    <tr>
-                        <td>{{ workout.workout }}</td>
-                        <td>{{ workout.duration }}</td>
-                        <form action="{% url 'todolist:workout_update' workout.id %}" method="post">
-                            {% csrf_token %}
-                            <td>
-                                {% if workout.workout_done == 1 %}
-                                <input type="checkbox" class="filled-in" checked="checked" disabled="disabled"/>
-                            <label style="padding-left:20px; height:15px" ></label>
-                                {% else %}
-                                <input type="checkbox" class="filled-in" id="filled-in-box-{{ forloop.counter0 }}"
-                            onchange="this.form.submit()" />
-                            <label style="padding-left:20px; height:15px" for="filled-in-box-{{ forloop.counter0 }}"></label>
-                                {% endif %}
+           <form action="{% url 'todolist:workout_update'%}" method="post">
+            {%csrf_token%}
+                <input type="text" name="workout">
 
-                            </td>
-                        </form>
-                    </tr>
-                    {% endfor %}
-                    <!--
-                    <li>{{ workout.create_date }}</li>
-                    <li>{{ workout.modify_date }}</li>
-                    <li>{{ workout.duration }}</li>
-                    <li>{{ workout.owner }}</li>
-                    <li>{{ workout.owner.get_full_name | title }}</li>
-                    <li>{{ workout.workout_done }}</li>
-                    -->
-                </tbody>
-            </table>
-            {% else %}
-                <h4 class="center"> 오늘 일정이 없습니다 </h4>
-            {% endif %}
+                <input type="submit" name="일기쓰기">         
+            </form>
         </div>
     </div>
 

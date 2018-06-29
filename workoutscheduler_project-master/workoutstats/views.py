@@ -7,45 +7,6 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt, mpld3
 import numpy as np
 
-from todolist.models import Workout, WorkoutList
-
-
-class StatsTV(TemplateView):
-    template_name = 'workoutstats.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(StatsTV, self).get_context_data(**kwargs)
-
-        my_workouts = Workout.objects.filter(
-            owner_id=self.request.user.id, workout_done=1  # 소유자와 일치하고 이미 한 운동만 쿼리
-        )
-
-        # 카테고리와 시간을 튜플로 생성 (category, duration)하여 리스트에 삽입
-        graph_raw_data = []
-        for workout in my_workouts:
-            graph_raw_data.append((WorkoutList.objects.get(id=workout.workout_id).category_id, workout.duration))
-
-        # 카테고리별로 합쳐서 Data 가공
-        # 카테고리가 1, 2, 3, 4, 5이므로 1씩 빼준다
-
-        data_list = [0] * 5
-
-        for data in graph_raw_data:
-            data_list[data[0]-1] += data[1]
-
-        piechart = plot_piechart(self.request, data_list)
-        context['piechart'] = mark_safe(piechart)
-
-
-        # 꺾은선 그래프
-        graph = plot_graph(self.request)
-        context['graph'] = mark_safe(graph)
-
-        # 바 그래프
-        barchart = plot_barchart(self.request)
-        context['barchart'] = mark_safe(barchart)
-        return context
-
 
 def plot_graph(request):
     fig = plt.figure(figsize=(5, 5))

@@ -12,5 +12,5 @@ urlpatterns = [
     url(r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\d{1,2})/$', WorkoutDAV.as_view(), name='workout_day_archive'),
 
     # Example: /workout/update/1
-    url(r'^workout/update/(?P<workout_id>\d+)/$', workout_update, name='workout_update'),
+    url(r'^workout/update/$', workout_update, name='workout_update'),
 ]
