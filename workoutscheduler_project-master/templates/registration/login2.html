@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko"><head><style>
+.button {
+    background-color: none;
+    border: 2px solid #897045;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 12px;
+}
+
+</style>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/global.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/img/casterd.png" type="image/x-icon">
+
+    <title>감성 다이어리 카스타드</title>
+
+    <!--Import materialize.css-->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Import Google Material Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Import Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body style="background-color: #f7ddb6">
+
+<header>
+
+
+
+
+<nav class="orange lighten-2">
+    <div class="nav-wrapper">
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+        
+            <li><a href="/accounts/login/"><i class="material-icons">person</i></a></li>
+        
+     </ul>
+    </div>
+</nav>
+
+
+
+</header>
+
+<div class="container ">
+    <div class="row">
+      <img src="/static/img/casterd.png" class="col s2 offset-s5">
+    </div>
+      <h3 class="center-align brown-text">카스타드</h3>
+</div>
+
+
+
+
+
+<main>
+
+<div class="container">
+
+
+<div class="row">
+    <div class="col 8 offset-l3 s12">
+        
+        <form action="." method="post"><input name="csrfmiddlewaretoken" value="N95biYRISgp4RugO4ZOI7qGMO8MEasqn3j3VvjjSjeBgqjOLFYvf71KE8Zof6HXk" type="hidden">
+            
+
+            
+<div>
+ <input name="username" class="__required __noSpace" placeholder="ID" autofocus="" maxlength="254" required="" id="id_username" type="text">
+            </div>
+
+
+
+
+                 <input name="password" class="__required __noSpace" placeholder="PW" required="" id="id_password" type="password">
+            <div class="row">
+                <div class="button">
+                <a href="/accounts/register/" class="brown-text">회원가입</a>
+
+                </div>
+                <div class="col 4 s4">
+			 <div class="form-row right-align">
+                    <button class="btn-large waves-effect waves-light blue hoverable" type="submit" name="action">로그인
+                     <i class="material-icons right">send</i>
+                    </button>
+                    <input type="hidden" name="next" value="{{ next }}" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+</div>
+
+</main>
+
+
+
+ <footer class="page-footer orange lighten-2">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">카스타드는...</h5>
+          <p class="grey-text text-lighten-4">
+              간단한 일기 다이어리 웹 서비스입니다.
+          </p>
+          <h5 class="white-text">Github Link</h5>
+          <a class="grey-text text-lighten-3" href="https://github.com/openhack-Blackjack/diary">
+            <i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">사필귀정</h5>
+          <div class="row">
+              <div class="col l12 s3">
+                  <a class="grey-text text-lighten-3" href="mailto:minyoungjung84@gmail.com">
+              <i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i> E-mail</a>
+              </div>
+              <div class="col l12 s3">
+                  <a class="grey-text text-lighten-3" href="https://www.instagram.com/fallgrain">
+              <i class="fa fa-instagram fa-2x"></i> Instagram</a>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+        © 2018 Powered by Black jack
+    </div>
+  </div>
+</footer>
+
+
+
+
+<!-- Core JavaScript : Place at the end of document so the pages load faster -->
+
+<!--Import jQuery and materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+<!-- Compiled and minified JavaScript -->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+
+
+
+</body></html>
+
+
+
+
