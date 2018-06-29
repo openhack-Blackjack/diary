@@ -8,12 +8,10 @@ from django.utils.html import conditional_escape as esc
 from django.urls import reverse
 from todolist.models import Workout, Calink
 
+def pop(request, id):
+    workout = Workout.objects.get(pk=id)
 
-def pop(request, title):
-    print(title)
-    workouts = Workout.objects.filter(workout = title)
-
-    return render(request, 'child.html', {'workouts': workouts})
+    return render(request, 'child.html', {'workout': workout})
 
 class WorkoutCalendarTV(TemplateView):
     template_name = 'calendar.html'
@@ -27,7 +25,7 @@ class WorkoutCalendarTV(TemplateView):
             year = int(self.kwargs['year'])
             month = int(self.kwargs['month'])
 
-        my_workouts = Workout.objects.order_by('workout_date').filter(
+        my_workouts = Workout.objects.order_by('create_date').filter(
             workout_date__year=year, workout_date__month=month, owner_id=self.request.user.id
         )
         cal = WorkoutCalendar(my_workouts).formatmonth(year, month)
@@ -51,7 +49,7 @@ class WorkoutCalendar(HTMLCalendar):
                 body = ['<ul>']
                 for workout in self.workouts[day]:
                     body.append('<li><h6>')
-                    body.append('<a href = /calendar/popcontent/'+workout.workout+'>'+ esc(workout.workout) + '</a>')
+                    body.append('<a href = /calendar/popcontent/' + str(workout.id) + '>' + esc(workout.workout) + '</a>')
                     body.append("<div style = 'display: none;''>"+"<input type = 'text' name = 'content'>" + esc(workout.content) + "</input>"+"</div>")
                     body.append('</li></h6>')
                 body.append('</ul>')

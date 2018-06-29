@@ -2,7 +2,7 @@ import pandas as pd
 
 def riri(name):
 
-        matrix = []
+
         ha = []
         f = open(name, 'r')
         csvReader = pd.read_csv(name)

@@ -9,21 +9,18 @@
 
     <div class="row">
         <div class="col l8 offset-l2 s12">
-           <form action="{% url 'todolist:workout_update'%}" method="post">
+           <form action="{% url 'todolist:workout_new'%}" method="post" id="myForm">
             {%csrf_token%}
-                <input type="text" name="workout">
-                <div style="background-image: url('/static/img/note.png'); padding-left: 180px;padding-top: 60px;">
-                    <textarea name="content" cols="50" style="font-size:23pt;height:25em;width:560px;border: none"></textarea>
+                <input type="text" name="workout" style="font-size:30pt;">
+                <div style="background-image: url('/static/img/note.png'); padding-left: 120px;padding-top: 110px;">
+                    <textarea name="content" cols="50" style="font-size:30pt;height:20em;width:600px;border: none"></textarea>
                 </div>
-                <input type="submit" name="일기쓰기">         
             </form>
         </div>
     </div>
 
 
 </div>
-<div class="rain front-row"></div>
-  <div class="rain back-row"></div>
 <div class="fixed-action-btn">
   <a class="btn-floating btn-large red">
     <i class="large material-icons">mode_edit</i>
@@ -32,7 +29,7 @@
     <li><a class="btn-floating yellow darken-1" onclick="set_sunny();"><i class="material-icons">wb_sunny</i></a></li>
     <li><a class="btn-floating blue darken-3" onclick="set_rainny();"><i class="material-icons">invert_colors</i></a></li>
     <li><a class="btn-floating green"><i class="material-icons">autorenew</i></a></li>
-    <li><a class="btn-floating blue"><i class="material-icons">save</i></a></li>
+    <li><a class="btn-floating blue" onclick="submit()"><i class="material-icons">save</i></a></li>
   </ul>
 </div>
 
@@ -40,38 +37,25 @@
 <script>
 
     function set_sunny() {
-        alert("asdf")
+        alert("기분이 좋으시군요~")
     }
 
     function set_rainny() {
-        $("body").class
-        makeItRain();
+        alert("기분이 안좋으신가요? 힘내세요~")
     }
 
-    var makeItRain = function() {
-  //clear out everything
-  $('.rain').empty();
+    function submit() {
+        document.getElementById("myForm").submit();
+    }
 
-  var increment = 0;
-  var drops = "";
-  var backDrops = "";
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.fixed-action-btn');
+    var instances = M.FloatingActionButton.init(elems, {
+      hoverEnabled: false
+    });
+  });
 
-  while (increment < 100) {
-    //couple random numbers to use for various randomizations
-    //random number between 98 and 1
-    var randoHundo = (Math.floor(Math.random() * (98 - 1 + 1) + 1));
-    //random number between 5 and 2
-    var randoFiver = (Math.floor(Math.random() * (5 - 2 + 1) + 2));
-    //increment
-    increment += randoFiver;
-    //add in a new raindrop with various randomizations to certain CSS properties
-    drops += '<div class="drop" style="left: ' + increment + '%; bottom: ' + (randoFiver + randoFiver - 1 + 100) + '%; animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"><div class="stem" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div><div class="splat" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div></div>';
-    backDrops += '<div class="drop" style="right: ' + increment + '%; bottom: ' + (randoFiver + randoFiver - 1 + 100) + '%; animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"><div class="stem" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div><div class="splat" style="animation-delay: 0.' + randoHundo + 's; animation-duration: 0.5' + randoHundo + 's;"></div></div>';
-  }
-
-  $('.rain.front-row').append(drops);
-  $('.rain.back-row').append(backDrops);
-}
+  // Or with jQuery
 
 </script>
 {% endblock %}
