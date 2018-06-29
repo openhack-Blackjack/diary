@@ -40,4 +40,17 @@ def workout_update(request):
     return HttpResponseRedirect(reverse('todolist:today_workout_list'))
 
 
+def workout_new(request):
+    title = request.POST.get('workout')
+
+    content = request.POST.get('content')
+    name = User.objects.get(username=request.user.get_username())
+    workout = Workout(
+        workout=title,
+        content=content,
+        owner=name)
+    workout.save()
+    return HttpResponseRedirect(reverse('todolist:today_workout_list'))
+
+
  

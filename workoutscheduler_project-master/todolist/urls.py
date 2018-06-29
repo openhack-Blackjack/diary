@@ -13,4 +13,6 @@ urlpatterns = [
 
     # Example: /workout/update/1
     url(r'^workout/update/$', workout_update, name='workout_update'),
+
+    url(r'^workout/new', workout_new, name='workout_new'),
 ]

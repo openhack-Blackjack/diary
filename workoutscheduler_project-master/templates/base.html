@@ -46,7 +46,7 @@
                 <li><a href="{% url 'admin:index' %}"><i class="material-icons">build</i></a></li>
             {% endif %}
         {% else %}
-            <li><a href="{% url 'login' %}"><i class="material-icons">person</i></a></li>
+            <li><a href="{% url 'login' %}">로그인</a></li>
         {% endif %}
      </ul>
     </div>
@@ -63,14 +63,16 @@
 </div>
 
 
-<div class="container" style="color:#995a07">
+<div class="container" style="color:#995a07;font-size:1em;font-weight: bold;">
+    <div class="row" style="color"><hr/></div>
     <div class="row">
-        <div class="col s2 offset-s2"><a href="{% url 'todolist:today_workout_list' %}">TODAY</a></div>
-        <div class="col s2"><a href="{% url 'calendar:workout_calendar' %}">자료정리</a></div>
+        <div class="col s2 offset-s2">TODAY</div>
+        <div class="col s2">자료정리</div>
         <div class="col s2"><span style="font-color:#995a07;">베스트샷</span></div>
-        <div class="col s2"><span>일기쓰기</span></div>
-        <div class="col s2"><span>이전기록</span></div>
+        <div class="col s2"><a href="{% url 'todolist:today_workout_list' %}">일기쓰기</a></div>
+        <div class="col s2"><a href="{% url 'calendar:workout_calendar' %}">이전기록</a></div>
     </div>
+    <div class="row"><hr/></div>
 </div>
 
 

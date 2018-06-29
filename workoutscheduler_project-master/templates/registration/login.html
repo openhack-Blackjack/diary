@@ -1,10 +1,57 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
 
-{% block content %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/global.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/img/casterd.png" type="image/x-icon">
+
+    <title>감성 다이어리 카스타드</title>
+
+    <!--Import materialize.css-->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Import Google Material Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Import Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body style="background-image: url('/static/img/bgi.jpeg')">
+
+<header>
+
+
+<div class="container" style="margin-top: 10em;">
+    <div class="row">
+      <img src="/static/img/casterd.png" class="col s2 offset-s5">
+    </div>
+      <h3 class="center-align brown-text">카스타드</h3>
+</div>
+
+
+
+
+
+<main>
+
+<div class="container">
+
+
 
 <div class="row">
-    <div class="col l6 offset-l3 s12">
-        <h3 class="center-align grey-text">사용자 로그인</h3>
+    <div class="col l4 offset-l4 s12">
         <form action="." method="post">{% csrf_token %}
             {% if form.errors %}
             <p class="red-text">사용자 이름 및 비밀번호를 확인해 주세요</p>
@@ -15,15 +62,17 @@
             </div>
                 {{ form.password.label_tag }} {{ form.password }}
             <div class="row">
-                <div class="col 8 s8">
-                <a class="red-text" href="{% url 'register' %}">회원가입 페이지로 이동</a>
+                <div class="col 4 s4">
+                    <div class="form-row left-align">
+                        <!--<a class="red-text" href="{% url 'register' %}">회원가입</a>-->
+                        <button class="Join_box" href="{% url 'register' %}" style="font-size:2em;">회원가입</button>
+                    </div>
                 </div>
+                <div class="col s3"></div>
                 <div class="col 4 s4">
                     <div class="form-row right-align">
-                    <button class="btn-large waves-effect waves-light blue hoverable" type="submit" name="action">로그인
-                     <i class="material-icons right">send</i>
-                    </button>
-                    <input type="hidden" name="next" value="{{ next }}" />
+                        <button type="submit" name="action" class="Login_box" style="font-size:2em;">로그인</button>
+                        <input type="hidden" name="next" value="{{ next }}" />
                     </div>
                 </div>
             </div>
@@ -31,5 +80,26 @@
     </div>
 </div>
 
+</div>
 
-{% endblock content %}
+</main>
+
+
+
+<!-- Core JavaScript : Place at the end of document so the pages load faster -->
+
+<!--Import jQuery and materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+<!-- Compiled and minified JavaScript -->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+
+
+
+</body>
+</html>
+
+
+
+
