@@ -1,7 +1,6 @@
-<div align="middle">
-<img src="https://github.com/openhack-Blackjack/diary/tree/master/workoutscheduler_project-master/static/img/casterd.png" height="250px" >
-</div>
-<br/>
+<p align="middle">
+<img src="https://github.com/openhack-Blackjack/diary/blob/master/workoutscheduler_project-master/static/img/casterd.png">
+</p>
 
 # diary project
 ### teamate 팀장:이근식, 팀원:김영운,김민중,이재일,성지은
