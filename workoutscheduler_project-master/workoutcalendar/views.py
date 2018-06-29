@@ -8,12 +8,9 @@ from django.utils.html import conditional_escape as esc
 from django.urls import reverse
 from todolist.models import Workout
 
-
-def pop(request, title):
-    print(title)
-    workouts = Workout.objects.filter(workout = title)
-
-    return render(request, 'child.html', {'workouts': workouts})
+def pop(request, id):
+    workout = Workout.objects.filter(id = id)
+    return render(request, 'child.html', {'workouts': workout})
 
 class WorkoutCalendarTV(TemplateView):
     template_name = 'calendar.html'
@@ -51,7 +48,7 @@ class WorkoutCalendar(HTMLCalendar):
                 body = ['<ul>']
                 for workout in self.workouts[day]:
                     body.append('<li><h6>')
-                    body.append('<a href = /calendar/popcontent/'+workout.workout+'>'+ esc(workout.workout) + '</a>')
+                    body.append('<a href = /calendar/popcontent/' + str(workout.id) + '>' + esc(workout.workout) + '</a>')
                     body.append("<div style = 'display: none;''>"+"<input type = 'text' name = 'content'>" + esc(workout.content) + "</input>"+"</div>")
                     body.append('</li></h6>')
                 body.append('</ul>')

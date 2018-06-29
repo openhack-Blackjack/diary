@@ -56,13 +56,27 @@
                 <li><a href="{% url 'login' %}"><i class="material-icons">person</i></a></li>
                 {% endif %}
             </ul>
-
-            <img src="/static/img/casterd.png" class="brand-logo center" style="height:60px">
-
         </div>
     </nav>
 </div>
 <!-- navbar end -->
+
+<nav>
+    <div class="nav-wrapper">
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+        {% if user.is_active %}
+            {% if user.is_staff %}
+                <li><a href="{% url 'admin:index' %}"><i class="material-icons">build</i></a></li>
+            {% endif %}
+        {% else %}
+            <li><a href="{% url 'login' %}"><i class="material-icons">person</i></a></li>
+        {% endif %}
+     </ul>
+    </div>
+</nav>
+<div class="container">
+    <img src="/static/img/casterd.png" class="col s2 offset-s5" style="height:60px">
+</div>
 
 <!-- sidebar start -->
 <ul id="slide-out" class="side-nav">
@@ -123,17 +137,8 @@
 <!--Import jQuery and materialize.js-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
 <!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-
-<script>
-$(document).ready(function() {
-    $(".button-collapse").sideNav();
-
-    $(".collapsible").collapsible();
-
-    $(".dropdown-button").dropdown();
-});
-</script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
 
 </body>
