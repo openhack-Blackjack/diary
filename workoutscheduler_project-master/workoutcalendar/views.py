@@ -6,7 +6,7 @@ from django.views.generic import TemplateView
 from django.utils.safestring import mark_safe
 from django.utils.html import conditional_escape as esc
 from django.urls import reverse
-from todolist.models import Workout
+from todolist.models import Workout, Calink
 
 
 def pop(request, title):

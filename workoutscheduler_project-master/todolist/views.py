@@ -6,7 +6,8 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.models import User
 from todolist.models import Workout
-
+from . import best_friend
+from django.shortcuts import render
 
 class WorkoutTAV(TodayArchiveView):
     model = Workout
@@ -41,3 +42,6 @@ def workout_update(request):
 
 
  
+def today_issue(request):
+    
+    return render(request, 'todolist/today.html')
