@@ -10,7 +10,6 @@ from todolist.models import Workout
 
 def pop(request, id):
     workout = Workout.objects.filter(id = id)
-
     return render(request, 'child.html', {'workouts': workout})
 
 class WorkoutCalendarTV(TemplateView):
