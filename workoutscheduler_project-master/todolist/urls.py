@@ -10,6 +10,8 @@ urlpatterns = [
 
     url(r'^today_issue/$', today_issue, name='today_issue'),
 
+    url(r'^today_best/$', today_best, name='today_best'),
+
     url(r'^today_frined/$', today_friend, name='today_frined'),
 
     # Example: /2017/may/25

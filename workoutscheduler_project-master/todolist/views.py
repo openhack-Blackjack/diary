@@ -55,7 +55,9 @@ def workout_new(request):
     workout.save()
     return HttpResponseRedirect(reverse('todolist:today_workout_list'))
 
+def today_best(request):
 
+    return render(request, 'todolist/today_best.html')
 def today_friend(request):
     #friend = []
     #friend = best_friend.riri()
