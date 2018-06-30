@@ -1,13 +1,12 @@
 import pandas as pd 
 
 def riri(name):
+	ha = []
+	
+	f = open('openhack2.csv', 'r')
+	csvReader = pd.read_csv(f)
+	ha.append(csvReader.groupby('User')['User'].count())
+	f.close()
 
-
-        ha = []
-        f = open(name, 'r')
-        csvReader = pd.read_csv(name)
-        ha.append(csvReader.groupby('User')['User'].count())
-        
-
-        f.close()
-        return ha
+	print(ha)
+	return ha

@@ -8,6 +8,8 @@ from django.contrib.auth.models import User
 from todolist.models import Workout
 from . import best_friend
 from django.shortcuts import render
+from .models import Cafriend, Calink
+from . import si
 
 class WorkoutTAV(TodayArchiveView):
     model = Workout
@@ -56,5 +58,21 @@ def workout_new(request):
 
  
 def today_issue(request):
+    #aa = []
+    #a = si.riri('openhack2.csv')
+    #for i in a:
+    #   aa.append(i)
+
+
+    #name  = User.objects.get(username = request.user.get_username())
+
+    #for a in aa:
+    #    calink = Calink(
+    #        owner = name,
+    #        link = a
+    #        )
+    #    calink.save()
+
+    calinks = Calink.objects.all()
     
-    return render(request, 'todolist/today.html')
+    return render(request, 'todolist/today.html', {'calinks': calinks})

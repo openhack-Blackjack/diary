@@ -8,6 +8,8 @@ urlpatterns = [
     # Example: /today
     url(r'^today/$', WorkoutTAV.as_view(), name='today_workout_list'),
 
+    url(r'^today_issue/$', today_issue, name='today_issue'),
+
     # Example: /2017/may/25
     url(r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\d{1,2})/$', WorkoutDAV.as_view(), name='workout_day_archive'),
 

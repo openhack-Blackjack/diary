@@ -31,3 +31,9 @@ class Calink(models.Model):
     owner = models.ForeignKey(User, null=False)
     link = models.CharField(max_length= 100)
     create_date = models.DateTimeField(default=datetime.today())
+
+
+class Cafriend(models.Model):
+    owner = models.ForeignKey(User, null=False)
+    fname = models.CharField(max_length = 50)
+    count = models.IntegerField(default = 0)
