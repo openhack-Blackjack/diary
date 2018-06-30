@@ -36,4 +36,4 @@ class Calink(models.Model):
 class Cafriend(models.Model):
     owner = models.ForeignKey(User, null=False)
     fname = models.CharField(max_length = 50)
-    count = models.IntegerField(default = 0)
+    count = models.CharField(max_length = 50)

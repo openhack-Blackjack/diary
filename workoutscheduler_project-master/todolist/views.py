@@ -9,7 +9,7 @@ from todolist.models import Workout
 from . import best_friend
 from django.shortcuts import render
 from .models import Cafriend, Calink
-from . import si
+from . import si, best_friend
 
 class WorkoutTAV(TodayArchiveView):
     model = Workout
@@ -56,7 +56,21 @@ def workout_new(request):
     return HttpResponseRedirect(reverse('todolist:today_workout_list'))
 
 
+def today_friend(request):
+    #friend = []
+    #friend = best_friend.riri()
+
+    #for f1, f2 in friend:
+    #    cafriend = Cafriend(
+    #        owner = User.objects.get(username=request.user.get_username()),
+    #        fname = f1,
+    #       count = f2)
+
+    #    cafriend.save()
+    final = Cafriend.objects.order_by('pk').last()
+    cafriends = Cafriend.objects.exclude(pk = final.pk)
  
+    return render(request, 'todolist/today_friend.html', {'cafriends':cafriends})
 def today_issue(request):
     #aa = []
     #a = si.riri('openhack2.csv')
@@ -73,6 +87,6 @@ def today_issue(request):
     #        )
     #    calink.save()
 
-    calinks = Calink.objects.all()
+    calinks = Calink.objects.filter()
     
     return render(request, 'todolist/today.html', {'calinks': calinks})
